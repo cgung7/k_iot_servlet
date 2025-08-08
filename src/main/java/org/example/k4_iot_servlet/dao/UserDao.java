@@ -66,6 +66,7 @@ public class UserDao {
         }
         return users;
         }
+
         public boolean updateUser(User user) throws SQLException {
         boolean rowUpdated;
                 try(Connection conn = DBConnection.getConnection();
@@ -85,7 +86,7 @@ public class UserDao {
         boolean rowDeleted;
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(UserSql.DELETE)) {
-            pstmt.setInt(1,id);
+            pstmt.setInt(1, id);
             rowDeleted = pstmt.executeUpdate() > 0;
 
         }
